@@ -9,9 +9,10 @@ defmodule Connect.Application do
     # List all child processes to be supervised
     children = [
       # Start the endpoint when the application starts
-      ConnectWeb.Endpoint
+      ConnectWeb.Endpoint,
       # Starts a worker by calling: Connect.Worker.start_link(arg)
       # {Connect.Worker, arg},
+      {Connect.Board, name: :main_board}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
