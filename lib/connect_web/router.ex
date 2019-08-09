@@ -14,7 +14,7 @@ defmodule ConnectWeb.Router do
   end
 
   scope "/", ConnectWeb do
-    pipe_through :browser # Use the default browser stack
+    pipe_through :browser
 
     get "/", PageController, :index
   end

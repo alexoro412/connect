@@ -3,21 +3,25 @@
 #
 # This configuration file is loaded before any dependency and
 # is restricted to this project.
+
+# General application configuration
 use Mix.Config
 
 # Configures the endpoint
 config :connect, ConnectWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "JXTFWNt7/PrAezn5iThT7EPpAyiGgvODlDP5nDI1bq1aP8g3fbqSj2dh7zc/FMmA",
+  secret_key_base: "5/yorjFgnxonhmPc/VQPZAfzBNYWs21xB6JZ1Avz1XUfATDrYHOXJtr9DyNAlJas",
   render_errors: [view: ConnectWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Connect.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: Connect.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+# Use Jason for JSON parsing in Phoenix
+config :phoenix, :json_library, Jason
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
-import_config "#{Mix.env}.exs"
+import_config "#{Mix.env()}.exs"
